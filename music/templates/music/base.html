@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>
+       {% block title %}
+        Viberr
+       {% endblock %}
+    </title>
+
+</head>
+
+{% load staticfiles %} <!--load the all static files -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/> <!--if you want to add bootrstrap then your just write that -->
+<link href='https://fonts.googlepis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}" /> <!--load the css file after loading the bootstrap file because all of te bootstrap code override to css file -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<nav class="navbar navbar-inverse"> <!--so if you add the bootstrap link then this class will be work fine -->
+    <div class="container-fluid">
+        <!--Header -->
+        <div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar"> <!--sorrounded by container,when you click a button then make visible or invisible  -->
+              <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> <!--this span use for option in right side when the tab is small then the options shows in right side -->
+           </button>
+            <a class="navbar-brand" href="{% url 'music:index' %}">Viberr</a> <!--this is the viberr icon it redirects to home page(index.html) -->
+        </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar"> <!--when the tab is small then this div class is hidden and options are shows in span class -->
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="{% url 'music:index' %}">
+                        <span class="glaphyicon glaphyicon-cd" aria-hidden="true"></span>&nbsp; <!--&nbsp using for space, glaphy.. use for image -->
+                        Albums
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;
+                        Songs
+                    </a>
+                </li>
+            </ul>
+
+            <form class="navbar-form navbar-left" role="search" method="get" action="#">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="q" value="">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="{% url 'music:album-add'%}">
+                        <span class="glaphyicon glaphyicon-plus" aria-hidden="true"></span>&nbsp; <!--&nbsp using for space, glaphy.. use for image -->
+                        Add Album
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{% url 'music:logout' %}">
+                        <span class="glaphyicon glaphyicon-off" aria-hidden="true"></span>&nbsp; <!--&nbsp using for space, glaphy.. use for image -->
+                        Logout
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+{% block body %}
+{% endblock %}
+
+</html>

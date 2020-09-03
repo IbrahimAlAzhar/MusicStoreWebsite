@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% for instance in object_list %}
+    <!--object_list takes from class based view WebListView -->
+        <p> {{ instance.id }} - <a href='{{ instance.get_absolute_url}}'> {{ instance.artist }} - {{ instance.album_title }}</a>  </p>
+
+    {% endfor %}
+</body>
+</html>

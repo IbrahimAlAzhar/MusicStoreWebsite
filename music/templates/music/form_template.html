@@ -1,0 +1,13 @@
+{% for field in form %}
+<!--here the form comes onto models.py file(build in) from Album class,the form shows the each attributes of models file and it controls from class based views  -->
+<!--you doesn't need to create any form from scratch,the models file generates it -->
+<div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <span class="text-danger small">
+                {{ field.errors }} <!--if user doesn't input any album name or else then it shows error messages -->
+            </span>
+        </div>
+        <label class="control-label col-sm-2">{{ field.label_tag }} </label> <!--label tag means artist,album title,genre,album logo shows in a form display using for loop  -->
+        <div class="col-sm-10"> {{ field }}</div> <!--here field means to create a form where the attributes of models -->
+    </div>
+{% endfor %}
